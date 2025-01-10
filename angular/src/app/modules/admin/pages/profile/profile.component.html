@@ -1,0 +1,121 @@
+<div class="card main-card">
+    <div class="card-body">
+        <form autocomplete="off" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="card-header">
+                    <h4 class="card-title">Profile Settings</h4>
+                </div>
+                <div class="border-right">
+                    <div class="align-items-center p-1 profile-icon avatarLabel">
+                        <div>
+                            <div class="avatar-edit">
+                                <input class="Def upl cursor-pointer" type="file" (change)="uploadImage($event)">
+                                <label for="imageUpload"></label>
+                            </div>
+                            <div class="uploade-img">
+                                <img id="imagePreview" class="img-fluid rounded-circle mb-2" width="160"
+                                    [src]="imagePreview ? imagePath+imagePreview : '../../../../../../assets/img/cloud-computing.png'">
+                            </div>
+                            <label *ngIf="errorImage.isError == true" class="danger">
+                                {{ errorImage.errorMessage }}
+                            </label>
+                        </div>
+                        <div class="labelProfile">
+                            <span class="font-weight-bold">{{userDetails?.firstName}}
+                                {{userDetails?.lastName}}</span><br>
+                            <span>{{userDetails?.email}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12  border-right">
+                    <div class="py-3">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="small mb-2" for="inputFirstName">First name</label>
+                                <input class="form-control mb-4" type="text" placeholder="Enter your first name"
+                                    name="firstName" formControlName="firstName"
+                                    [ngClass]="{ 'is-invalid': isSubmitted && formControls['firstName'].errors }">
+                                <span class="danger" *ngIf="isSubmitted && formControls['firstName'].errors">
+                                    <div *ngIf="formControls.firstName.errors.required">First Name is required.</div>
+                                    <div *ngIf="formControls.firstName.errors.pattern">Only alphabets are allowed.</div>
+                                    <div *ngIf="formControls.firstName.errors.minlength">Min 2 characters required.
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="small mb-2" for="inputLastName">Last name</label>
+                                <input class="form-control mb-4" type="text" placeholder="Enter your last name"
+                                    name="lastName" formControlName="lastName"
+                                    [ngClass]="{ 'is-invalid': isSubmitted && formControls['lastName'].errors }">
+                                <span class="danger" *ngIf="isSubmitted && formControls['lastName'].errors">
+                                    <div *ngIf="formControls.lastName.errors.required">Last Name is required.</div>
+                                    <div *ngIf="formControls.lastName.errors.pattern">Only alphabets are allowed.</div>
+                                    <div *ngIf="formControls.lastName.errors.minlength">Min 2 characters required.</div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-12">
+                                <label class="small mb-2" for="inputEmailAddress">Email address</label>
+                                <input class="form-control mb-4" type="text" placeholder="Enter your email address"
+                                    name="email" formControlName="email"
+                                    [ngClass]="{ 'is-invalid': isSubmitted && formControls['email'].errors }">
+                                <span class="danger" *ngIf="isSubmitted && formControls['email'].errors">
+                                    <div *ngIf="formControls.email.errors.required">Email is required</div>
+                                    <div *ngIf="formControls.email.errors.email">Email must be a valid email address
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="small mb-2" for="inputPhone">Phone number</label>
+                                <input class="form-control mb-4" type="tel" placeholder="Enter your phone number"
+                                    name="mobileNumber" formControlName="mobileNumber"
+                                    [ngClass]="{ 'is-invalid': isSubmitted && formControls['mobileNumber'].errors }">
+                                <span class="danger" *ngIf="isSubmitted && formControls['mobileNumber'].errors">
+                                    The "Mobile Number" field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <label class="small mb-2" for="inputFirstName">Password</label>
+                                <input class="form-control mb-4" type="password" placeholder="Enter your password"
+                                    name="password" formControlName="password"
+                                    [ngClass]="{ 'is-invalid': isSubmitted && formControls['password'].errors }">
+                                <span class="danger" *ngIf="isSubmitted && formControls['password'].errors">
+                                    <div *ngIf="formControls.password.errors.required">Password is required</div>
+                                    <div *ngIf="formControls.password.errors.minlength">Password must be at least 6
+                                        characters</div>
+                                </span>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <label class="small mb-2" for="inputLastName">Confirm Password</label>
+                                <input class="form-control mb-4" type="password"
+                                    placeholder="Enter your confirm password" name="confirmPassword"
+                                    formControlName="confirmPassword"
+                                    [ngClass]="{ 'is-invalid': isSubmitted && formControls['confirmPassword'].errors }">
+                                <span class="danger" *ngIf="isSubmitted && formControls['confirmPassword'].errors">
+                                    <div *ngIf="formControls.confirmPassword.errors.required">Confirm Password is
+                                        required
+                                    </div>
+                                    <div *ngIf="formControls.confirmPassword.errors.mustMatch">Passwords must match
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label class="small mb-2" for="inputBirthday">Status</label>
+                            <select class="form-control mb-4" formControlName="status">
+                                <option value="" disabled selected>Status</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button btn-real" type="submit">Save Profile</button>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

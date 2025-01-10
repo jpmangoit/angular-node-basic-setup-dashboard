@@ -1,0 +1,86 @@
+/* .h2{
+  color: #d4d4d4;
+} */
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #ffba5a;
+  border-color: #ffba5a;
+}
+
+.btn-primary:focus {
+  background-color: #ffba5a;
+  border-color: #ffba5a;
+  box-shadow: none;
+}
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid #DDDDDD;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.card {
+  background-color: #fff;
+}
+
+/* .card-body img {
+  filter: invert(1);
+} */
+
+/* .card-body label {
+  color: #d4d4d4;
+} */
+
+/* .card-body p {
+  text-align: center;
+  color: #d4d4d4;
+} */
+
+/* .card-body a.cursor-pointer {
+  text-align: center;
+  display: block;
+} */
+
+/* .main-block {
+  background-color: #0c0c0c;
+} */
+
+/* .top-heading p.lead {
+  color: #d4d4d4;
+  margin-bottom: 20px;
+} */
+
+.card-body a {
+  color: #555;
+}
+
+/* .card-body label {
+  margin-bottom: 15px;
+} */
+
+.btn-main .btn-info:focus {
+  box-shadow: none;
+}
+
+
+.signuphead .h2 {
+  padding: 5px;
+  font-weight: 600;
+  font-size: 22px;
+  text-align: center;
+  color: #555 !important;
+  margin-bottom: 5px;
+}
+
+.signuphead .lead {
+  text-align: center;
+}

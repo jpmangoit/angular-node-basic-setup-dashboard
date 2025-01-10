@@ -1,0 +1,154 @@
+<div class="popup User" *ngIf="data.title != 'product details'">
+    <div class="popup-header">
+        <div class="d-flex justify-content-between">
+            <h2 class="popup-title">Order Details</h2>
+            <i class="fa fa-close cursor-pointer" style="font-size: 19px; float: right;" (click)="onClose(false)"></i>
+        </div>
+    </div>
+    <div class="popup-body">
+        <div class="deal-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../../../../../../assets/img/emailback.jpg" alt="Product Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="fw-bold data-perduct">{{ data?.productName }}</h1>
+                        <p class="sku mt-2 data-perduct">SKU : {{ data?.sku }}</p>
+                        <p class="price mt-2">Price : {{ data?.price.amount }} {{ data?.price.currency }}</p>
+                        <p class="published-status mt-2">Published Status : {{ data?.publishedStatus }}</p>
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold">Mart:</td>
+                                    <td>{{ data?.mart }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">WPID:</td>
+                                    <td>{{ data?.wpid }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">UPC:</td>
+                                    <td>{{ data?.upc }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">GTIN:</td>
+                                    <td>{{ data?.gtin }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Shelf:</td>
+                                    <td>{{ data?.shelf }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Lifecycle Status:</td>
+                                    <td>{{ data?.lifecycleStatus }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Variant Group ID:</td>
+                                    <td>{{ data?.variantGroupId }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Ship Node:</td>
+                                    <td>{{ data?.shipNode }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Input Quantity:</td>
+                                    <td>{{ data?.inputQty?.amount }} {{ data?.inputQty?.unit }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Available to Sell Quantity:</td>
+                                    <td>{{ data?.availToSellQty?.amount }} {{ data?.availToSellQty?.unit }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Reserved Quantity:</td>
+                                    <td>{{ data?.reservedQty?.amount }} {{ data?.reservedQty?.unit }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup User" *ngIf="data.title == 'product details'">
+    <div class="popup-header">
+        <div class="d-flex justify-content-between">
+            <h2 class="popup-title">Product Details</h2>
+            <i class="fa fa-close cursor-pointer" style="font-size: 19px; float: right;" (click)="onClose(false)"></i>
+        </div>
+    </div>
+    <div class="popup-body">
+        <div class="deal-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+                            <ol class="carousel-indicators">
+                                <ng-container *ngFor="let image of data?.item?.productImages; let i = index">
+                                    <li data-bs-target="#myCarousel" [attr.data-bs-slide-to]="i"
+                                        [class.active]="i == 0">
+                                    </li>
+                                </ng-container>
+                            </ol>
+
+                            <!-- Slides -->
+                            <div class="carousel-inner">
+                                <div *ngFor="let image of data?.item?.productImages; let i = index"
+                                    class="carousel-item" [class.active]="i == 0">
+                                    <img src="{{image?.imageUrl}}" width="500" height="600">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="fw-bold data-perduct">{{ data?.item?.productName }}</h1>
+                        <p class="sku mt-2 data-perduct">SKU : {{ data?.item?.sku }}</p>
+                        <p class="price mt-2">Price : {{ data?.item?.price }} {{ data?.item?.currency }}</p>
+                        <!-- <p class="published-status mt-2">Published Status : {{ data?.status[0] }}</p> -->
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="">WPID/ASIN:</td>
+                                    <td>{{ data?.item?.wpid }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Product Type:</td>
+                                    <td>{{ data?.item?.productType }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Platform:</td>
+                                    <td>{{ data?.item?.platform }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Inventory Quantity:</td>
+                                    <td>{{ data?.item?.inventoryQuantity }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Low stock status:</td>
+                                    <td> <span
+                                            [class]="data?.item?.inventoryQuantity > 10 ? 'badge bg-success': data?.item?.inventoryQuantity > 0 ? 'badge bg-warning' :'badge bg-danger'">
+                                            {{ data?.item?.inventoryQuantity > 10 ? 'Available':
+                                            data?.item?.inventoryQuantity > 0 ? 'Few item left': 'Out of Stock' }}
+                                        </span></td>
+                                </tr>
+                                <tr>
+                                    <td class="">Created Date:</td>
+                                    <td>{{ data?.item?.createdAt | date }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Last Updated Date:</td>
+                                    <td>{{ data?.item?.updatedAt| date }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

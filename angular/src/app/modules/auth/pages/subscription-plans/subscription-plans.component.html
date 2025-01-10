@@ -1,0 +1,100 @@
+<br>
+
+<div class="d-flex justify-content-between flex-wrap">
+    <h4 class="card-title mb-3"></h4>
+    <div>
+        <button class="btn btn-info header-btn" (click)="_authService.logout()">
+            <div>
+                Logout <i class="fa fa-sign-in" aria-hidden="true"></i>
+            </div>
+        </button>
+    </div>
+</div>
+<br>
+<section class="pricing-section">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h1 class="text-custome-heading">Choose a Plan</h1>
+        </div>        
+
+        <div class="subscription_plans_area">
+
+            <div class="row" *ngIf="plans">
+                <ng-container *ngFor="let plan of plans; let i=index">
+
+                    <div class="col-md-4 col-xs-12" *ngIf="plan.billingPeriod == 'monthly'">
+                        <div class="card">
+                            <div class="plans_header">
+                                <h1>{{plan.name}}</h1>
+                                <h3>
+                                    ${{plan.price}}  /
+                                    <label *ngIf="plan.billingPeriod == 'monthly'">month</label>
+                                    <label *ngIf="plan.billingPeriod == 'yearly'">year</label>
+                                </h3>
+                                <span class="status_badge">Active</span>
+                            </div>
+                            <div class="plans_description">
+                                <ul>
+                                    <li *ngFor="let feature of getParseData(plan.features)">- {{ feature.name || '--' }}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="plan-footer"><button type="button" class="btn btn-info"  (click)="selectPlan(plan.priceId, plan.price)">Buy Now</button></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-xs-12 mt-6" *ngIf="plan.billingPeriod == 'yearly'">
+                        <div class="card">
+                            <div class="plans_header">
+                                <h1>{{plan.name}}</h1>
+                                <h3>
+                                    ${{plan.price}}  /
+                                    <label *ngIf="plan.billingPeriod == 'monthly'">month</label>
+                                    <label *ngIf="plan.billingPeriod == 'yearly'">year</label>
+                                </h3>
+                                <span class="status_badge">Active</span>
+                            </div>
+                            <div class="plans_description">
+                                <ul>
+                                    <li *ngFor="let feature of getParseData(plan.features)">- {{ feature.name || '--' }}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="plan-footer"><button type="button" class="btn btn-info"  (click)="selectPlan(plan.priceId, plan.price)">Buy Now</button></div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <!-- <div class="outer-box" *ngIf="plans">
+            <ng-container *ngFor="let plan of plans; let i=index">
+                <div class="pricing-block fadeInUp">
+                    <div class="inner-box">
+                        <div class="min-hight-inner">
+                            <div class="icon-box">
+                                <div class="icon-outer"><i class="fa-solid fa-dollar-sign"></i> </div>
+                            </div>
+                            <div class="price-box">
+                                <div class="title"> {{plan.name}}</div>
+                                <h4 class="price">
+                                    ${{plan.price}} /
+                                    <label *ngIf="plan.billingPeriod == 'monthly'">month</label>
+                                    <label *ngIf="plan.billingPeriod == 'yearly'">year</label>
+                                </h4>
+                            </div>
+                            <div class="feature">
+                                <ul class="features">
+                                    <li *ngFor="let feature of getParseData(plan.features)">{{ feature.name || '--' }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="btn-box mt-5">
+                            <a (click)="selectPlan(plan.priceId, plan.price)" class="theme-btn">BUY PLAN</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div> -->
+    </div>
+</section>

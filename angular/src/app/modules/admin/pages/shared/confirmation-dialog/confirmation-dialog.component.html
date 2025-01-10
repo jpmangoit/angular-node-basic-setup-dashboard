@@ -1,0 +1,38 @@
+<div class="popup" *ngIf="data.title != 'Add Note'">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header flex-column">
+                <div class="icon-box">
+                    <i class="fa fa-close material-icons"></i>
+                </div>
+                <h4 class="modal-title w-100">{{data.message}}</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="close(false)">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="close(true)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="popup" *ngIf="data.title == 'Add Note'">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100">{{ data.title }}</h4>
+            </div>
+            <div class="modal-body">
+                <textarea #note [(ngModel)]="data.order.note" class="form-control"></textarea>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="close(false)">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="close(note.value)">Save</button>
+            </div>
+        </div>
+    </div>    
+</div>
+

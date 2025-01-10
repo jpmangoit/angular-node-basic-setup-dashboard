@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+        "target": "https://app.fbasystem.com/backend",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

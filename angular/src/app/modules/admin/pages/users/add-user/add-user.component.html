@@ -1,0 +1,190 @@
+<form autocomplete="off" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="container-fluid p-0">
+
+        <div class="card-header">
+            <h2 class="card-title">Add User</h2>
+        </div>
+        <div class="card main-card">
+            <div class="row">
+                <div class="col-md-4 col-xl-2 d-flex align-items-center justify-content-center">
+                    <div class="card mb-3">
+                        <div class="card-body text-center profile-icon upload-icon">
+                            <div class="uploade-img">
+                                <img id="imagePreview" class="img-fluid rounded-circle mb-2" width="128" height="128"
+                                    [src]=" '../../../../../../assets/img/cloud-computing.png'">
+                            </div>
+                            <input class="Def upl" type="file" (change)="uploadImage($event)">
+                            <label *ngIf="errorImage.isError == true" class="danger">
+                                {{ errorImage.errorMessage }}
+                            </label>
+                            <h5 class="profile-img">Profile Image</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-xl-10">
+                    <div class="card-inner">
+                        <div class="card-header mt-3"><b>User Details:</b></div>
+                        <div class="card-body">
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (first name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputFirstName">First name</label>
+                                    <input class="form-control" type="text" placeholder="Enter first name"
+                                        name="firstName" formControlName="firstName"
+                                        [ngClass]="{ 'is-invalid': isSubmitted && formControls['firstName'].errors }">
+                                    <span class="danger" *ngIf="isSubmitted && formControls['firstName'].errors">
+                                        <div *ngIf="formControls.firstName.errors.required">
+                                            First Name
+                                            is required.</div>
+                                        <div *ngIf="formControls.firstName.errors.pattern">
+                                            Only
+                                            alphabets are allowed.</div>
+                                        <div *ngIf="formControls.firstName.errors.minlength">
+                                            Min 2
+                                            characters required.</div>
+                                    </span>
+                                </div>
+                                <!-- Form Group (last name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Last name</label>
+                                    <input class="form-control" type="text" placeholder="Enter last name"
+                                        name="lastName" formControlName="lastName"
+                                        [ngClass]="{ 'is-invalid': isSubmitted && formControls['lastName'].errors }">
+                                    <span class="danger" *ngIf="isSubmitted && formControls['lastName'].errors">
+                                        <div *ngIf="formControls.lastName.errors.required">
+                                            Last Name is
+                                            required.</div>
+                                        <div *ngIf="formControls.lastName.errors.pattern">
+                                            Only alphabets
+                                            are allowed.</div>
+                                        <div *ngIf="formControls.lastName.errors.minlength">
+                                            Min 2
+                                            characters required.</div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Form Group (email address)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                        <input class="form-control" type="text" placeholder="Enter email address"
+                                            name="email" formControlName="email"
+                                            [ngClass]="{ 'is-invalid': isSubmitted && formControls['email'].errors }">
+                                        <span class="danger" *ngIf="isSubmitted && formControls['email'].errors">
+                                            <div *ngIf="formControls.email.errors.required">
+                                                Email is
+                                                required
+                                            </div>
+                                            <div *ngIf="formControls.email.errors.email">
+                                                Email must be a
+                                                valid
+                                                email address</div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputPhone">Phone number</label>
+                                    <input class="form-control" type="tel" placeholder="Enter phone number"
+                                        name="mobileNumber" formControlName="mobileNumber"
+                                        [ngClass]="{ 'is-invalid': isSubmitted && formControls['mobileNumber'].errors }">
+                                    <span class="danger" *ngIf="isSubmitted && formControls['mobileNumber'].errors">
+                                        The "Mobile Number" field is required
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (first name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputAddress">Address</label>
+                                    <input class="form-control" type="text" placeholder="Enter your address"
+                                        name="address" formControlName="address"
+                                        [ngClass]="{ 'is-invalid': isSubmitted && formControls['address'].errors }">
+                                    <span class="danger" *ngIf="isSubmitted && formControls['address'].errors">
+                                        <div *ngIf="formControls.address.errors.required">
+                                            address
+                                            is required.</div>
+                                        <div *ngIf="formControls.address.errors.minlength">
+                                            Min 2
+                                            characters required.</div>
+                                    </span>
+                                </div>
+                                <!-- Form Group (last name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputCompanyName">Company name</label>
+                                    <input class="form-control" type="text" placeholder="Enter company name"
+                                        name="companyName" formControlName="companyName"
+                                        [ngClass]="{ 'is-invalid': isSubmitted && formControls['companyName'].errors }">
+                                    <span class="danger" *ngIf="isSubmitted && formControls['companyName'].errors">
+                                        <div *ngIf="formControls.companyName.errors.required">
+                                            Last Name is
+                                            required.</div>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (Status)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputBirthday">Status</label>
+                                    <select class="form-control" formControlName="status">
+                                        <option value="" disabled selected>Status
+                                        </option>
+                                        <option value="1">Active</option>
+                                        <option value="0">InActive</option>
+                                    </select>
+                                </div>
+                                <!-- Form Group (Status)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputBirthday">Package</label>
+                                    <select class="form-control" formControlName="packageId">
+                                        <option value="" disabled selected>Package
+                                        </option>
+                                        <option *ngFor="let pack of packagesList" [value]="pack.id">
+                                            {{pack.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (Password)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputFirstName">Password</label>
+                                    <input class="form-control" type="password" placeholder="Enter password"
+                                        name="password" formControlName="password"
+                                        [ngClass]="{ 'is-invalid': isSubmitted && formControls['password'].errors }">
+                                    <span class="danger" *ngIf="isSubmitted && formControls['password'].errors">
+                                        <div *ngIf="formControls.password.errors.required">Password is
+                                            required</div>
+                                        <div *ngIf="formControls.password.errors.minlength">Password
+                                            must be
+                                            at least 6 characters</div>
+                                    </span>
+                                </div>
+                                <!-- Form Group (confirm password)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Confirm Password</label>
+                                    <input class="form-control" type="password" placeholder="Enter confirm password"
+                                        name="confirmPassword" formControlName="confirmPassword"
+                                        [ngClass]="{ 'is-invalid': isSubmitted && formControls['confirmPassword'].errors }">
+                                    <span class="danger" *ngIf="isSubmitted && formControls['confirmPassword'].errors">
+                                        <div *ngIf="formControls.confirmPassword.errors.required">Confirm
+                                            Password is required</div>
+                                        <div *ngIf="formControls.confirmPassword.errors.mustMatch">Passwords
+                                            must match</div>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Save changes button-->
+                            <button class="btn btn-primary btn-real" type="submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

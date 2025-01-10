@@ -1,0 +1,29 @@
+.left-side-block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.left-side-block > div {width: 49%;}
+
+@media(max-width:1200px) {
+    .left-side-block {
+        margin-top: 25px;
+    }
+    
+    .left-side-block > div {width: 100%;}
+}
+
+.signuphead .h2 {
+    padding: 5px;
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    color: #555 !important;
+    margin-bottom: 5px;
+  }
+  
+  .signuphead .lead {
+    text-align: center;
+  }

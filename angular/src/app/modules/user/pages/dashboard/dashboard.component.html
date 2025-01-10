@@ -1,0 +1,218 @@
+<div class="row">
+    <div class="d-flex justify-content-between align-items-baseline card-heading flex-wrap">
+        <h2>Live Chart Inventory</h2>
+        <div class="d-flex min_bar" *ngIf="amazonAuthorize == 1 && walmartAuthorize == 1">
+            <button class="grey-button" [class.active]="selectedTabInventory === 'amazon'"
+                (click)="selectSection('amazon')">
+                Amazon
+            </button>
+            <button class="grey-button" [class.active]="selectedTabInventory === 'walmart'"
+                (click)="selectSection('walmart')">
+                Walmart
+            </button>
+        </div>
+    </div>
+    <div class="col-xl-12 col-xxl-12 d-flex">
+        <div class="w-100">
+            <div class="d-flex justify-content-between top-card">
+                <div class="card cursor-pointer dashboard-card">
+                    <div class="card-body main-table">
+                        <div class="row">
+                            <div class="col mt-0">
+                                <h3 class="card-title">In Transit</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="stat text-primary">
+                                    <i class="fas fa-shipping-fast align-middle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="mt-1 mb-3">{{ inventoryCounts.inTransitCount || 0 }}</h1>
+                    </div>
+                </div>
+
+                <div class="card cursor-pointer dashboard-card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col mt-0">
+                                <h3 class="card-title">In Preparation Mode</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="stat text-primary">
+                                    <i class="fas fa-cogs align-middle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="mt-1 mb-3">{{ inventoryCounts.preparationCount || 0 }}</h1>
+                    </div>
+                </div>
+
+                <div class="card cursor-pointer dashboard-card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col mt-0">
+                                <h3 class="card-title">Problem with Orders</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="stat text-primary">
+                                    <div class="stat text-primary">
+                                        <i class="fas fa-exclamation-circle align-middle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="mt-1 mb-3">{{ inventoryCounts.problemCount || 0 }}</h1>
+                    </div>
+                </div>
+
+                <div class="card cursor-pointer dashboard-card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col mt-0">
+                                <h3 class="card-title text-capitalize">Sent to {{selectedTabInventory == 'all' ?
+                                    'Amazon' :
+                                    selectedTabInventory}}</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="stat text-primary">
+                                    <i *ngIf="selectedTabInventory=='amazon' || selectedTabInventory=='all'"
+                                        class="fab fa-amazon align-middle"></i>
+                                    <img *ngIf="selectedTabInventory=='walmart'" class="align-middle" width="20px"
+                                        src="../../../../../assets/img/walmart.svg">
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="mt-1 mb-3">{{ inventoryCounts.sentToAmazonCount ||
+                            AmazonInventoryCounts.sentToAmazonCount || 0 }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 mt-4">
+    <div class="d-flex justify-content-between align-items-baseline card-heading flex-wrap">
+        <h2 (click)="getAmazonData()">Total Revenue</h2>
+        <div class="d-flex min_bar">
+            <button class="grey-button" [class.active]="activeRange === '7d'" (click)="setDateRange('7d')">
+                7 days
+            </button>
+            <button class="grey-button" [class.active]="activeRange === '30d'" (click)="setDateRange('30d')">
+                30 days
+            </button>
+            <button class="grey-button" [class.active]="activeRange === '6m'" (click)="setDateRange('6m')">
+                6 months
+            </button>
+            <button class="grey-button" [class.active]="activeRange === '1y'" (click)="setDateRange('1y')">
+                1 year
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 col-sm-12">
+            <div class="card p-2">
+                <div class="chart chart-sm">
+                    <div id="chartjs-dashboard-line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-12">
+            <div class="card p-2">
+                <div class="chart chart-sm">
+                    <div id="barchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-12 col-xxl-12 mt-4">
+    <div class="d-flex justify-content-between align-items-baseline card-heading flex-wrap">
+        <h2>Sales Records</h2>
+        <div class="d-flex min_bar" *ngIf="walmartAuthorize == 1 && amazonAuthorize == 1">
+            <button class="grey-button" [class.active]="selectedTabOrders === 'all'"
+                (click)="selectSectionOrders('all')">
+                All
+            </button>
+            <button class="grey-button" [class.active]="selectedTabOrders === 'amazon'"
+                (click)="selectSectionOrders('amazon')">
+                Amazon
+            </button>
+            <button class="grey-button" [class.active]="selectedTabOrders === 'walmart'"
+                (click)="selectSectionOrders('walmart')">
+                Walmart
+            </button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body py-3 main-table pix-size">
+            <div class="card-cover">
+                <div class="overflow-auto">
+                <table class="table table-hover my-0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Product Name</th>
+                            <th>Platform</th>
+                            <th>Order ID</th>
+                            <th>Charge Amount</th>
+                            <th>Tax Amount</th>
+                            <th>Order Date</th>
+                            <th>Quantity of items in shipment<span class="toolbar">Quantity of items in
+                                    shipment</span></th>
+                            <th>Tracking Number</th>
+                            <th>Referral Fee</th>
+                            <th>FBA/WFS Fee</th>
+                            <th>Paid Status</th>
+                            <th>Status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="orderData && orderData.length">
+                            <tr *ngFor="let row of orderData ;let i = index"
+                                matTooltip="{{row.note}}" matTooltipPosition="left">
+                                <td>{{row.customerName || '--'}}</td>
+                                <td>{{row.productName ||
+                                    '--'}}</td>
+                                <td class="text-capitalize">{{row.platform || '--'}}</td>
+                                <td>{{row.orderId || '--'}}</td>
+                                <td>{{row.amount || '--'}}
+                                    {{row?.amount ? row?.currency || '--' : ''}}</td>
+                                <td>{{row.taxAmount ||'--'}}
+                                    {{row.taxAmount? row?.currency || '--' : ''}}</td>
+                                <!-- <td>{{row?.orderType || '--'}}</td> -->
+                                <td>{{row?.orderDate | date}}</td>
+                                <td>{{row?.quantity || '--'}}</td>
+                                <td>{{row?.trackingNumber || '--'}}</td>
+                                <td>{{row?.referralFee || '--'}} {{row?.referralFee ? row?.currency || '' : ''}}</td>
+                                <td>{{row?.fbaFee || '--'}} {{row?.fbaFee ? row?.currency || '' : ''}}</td>    
+                                <td>
+                                    <span [class]="row?.paidStatus?.toLowerCase() == 'paid' ? 'badge bg-success' : 'badge bg-danger'">
+                                        {{row?.paidStatus | uppercase}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span
+                                        [class]="row?.status == 'Created' ? 'badge bg-success' : (row?.status == 'Canceled') || (row.status == 'Cancelled') ? 'badge bg-danger'  : row?.status == 'Pending' ? 'badge bg-info'  : 'badge bg-warning'">
+                                        {{(row.status == 'Canceled') || (row.status == 'Cancelled') ? 'CANCELLED' : row.status | uppercase}}</span>
+                                </td>
+                            </tr>
+                        </ng-container>
+                        <tr *ngIf="orderData && orderData.length == 0">
+                            <label class="no-data-found-label">No Orders Found</label>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+           
+        </div>
+        <div class="pagination-tab" *ngIf="orderData && orderData.length">
+            <mat-paginator class="pagination-footer" [length]="totalRows" [pageIndex]="currentPage"
+                [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                aria-label="Select page of users"></mat-paginator>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+@media(max-width:767px) {
+    ::ng-deep body .row.user-box-new .card.flex-fill {
+        margin: 0px 30px 0 0;
+      
+    }
+
+    ::ng-deep body .card.flex-fill {
+        margin: 0;
+        padding: 10px;
+        height: 100%;
+    }
+}
+.table td, .table th {
+    border-color: #4b4b4b;
+}
+
+table.table.table-hover.my-0 {
+    border: 1px solid #4a4a4a;
+}
+
+.user-list-table .table>tbody>tr>td:first-child {
+    width: 80px;
+    min-width: 80px;
+}
+
+.user-list-table .table>tbody>tr>td:first-child+td {
+    min-width: 150px;
+}

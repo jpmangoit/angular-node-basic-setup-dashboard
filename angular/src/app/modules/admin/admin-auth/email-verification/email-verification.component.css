@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.underlay {
+    width: 100%;
+    height: 100%;
+    background-color: #a9a9a9;
+    cursor: pointer;
+}
+
+.modal_area {
+    z-index: 100;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    padding: 30px;
+    color: rgb(255, 255, 255);
+    font-family: Lato, "Helvetica Neue";
+    font-weight: 200;
+    font-size: 16px;
+}
+
+.loader {
+    position: relative;
+    width: 250px;
+    height: 40px;
+    top: 45%;
+    top: -webkit-calc(50% - 10px);
+    top: calc(50% - 10px);
+    left: 25%;
+    left: -webkit-calc(50% - 125px);
+    left: calc(50% - 125px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    top: 0px;
+    left: 0px;
+    height: 40px;
+    width: 0px;
+    z-index: 0;
+    opacity: 1;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-animation: loader 8s ease-in-out;
+    animation: loader 8s ease-in-out;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.loader:after {
+    content: "Redirecting....";
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+@-webkit-keyframes loader {
+    0% {
+        width: 0px;
+    }
+
+    20% {
+        width: 20%;
+    }
+
+    40% {
+        width: 40%;
+    }
+
+    60% {
+        width: 60%;
+    }
+
+    80% {
+        width: 100%;
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+@keyframes loader {
+    0% {
+        width: 0px;
+    }
+
+    70% {
+        width: 100%;
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+        width: 100%;
+    }
+
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+
+.verify-test {
+    text-align: center;
+    padding-bottom: 20px;
+}

@@ -1,0 +1,49 @@
+<main class="content p-0">
+    <div class="container-fluid p-0">
+        <div class="text-end">
+            <button class="btn btn-dark" [routerLink]="['../add-role']">Add Role</button>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Role table</h5>
+                    </div>
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Permissions</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of resultData;let i = index">
+                                <td> {{i+1}}</td>
+                                <td>{{row.roleName || '--'}} </td>
+                                <td class="permissEx">
+                                    <i class="fa fa-user view_permission" (click)="viewPermissions(row.Permissions)"></i>
+                                </td>
+                                <td>
+                                    <button class="btn btn-success" [routerLink]="['../edit-role/'+row.id]">
+                                        <div class="position-relative">
+                                            <i class="fa fa-edit align-middle"></i>
+                                        </div>
+                                    </button>
+                                    &nbsp;
+                                    <button class="btn btn-danger" (click)="deleteRole(row.id)">
+                                        <div class="position-relative">
+                                            <i class="fa fa-trash align-middle"></i>
+                                        </div>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
