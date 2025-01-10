@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <app-side-bar></app-side-bar>
+    <div class="main">
+        <app-header></app-header>
+        <main class="content">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
+<div *ngIf="_authService.showLoader">
+    <div class="overlay">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
+    </div>
+</div>

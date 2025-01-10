@@ -1,0 +1,116 @@
+<div class="stripe-form" *ngIf="!showPromocode">
+    <div class="p-3 top-bar stripe-start">
+        <i class="fa fa-close cursor-pointer" style="font-size: 19px; float: right;" (click)="onClose(false)"></i>
+    </div>
+    <div class="pop-up-new">
+        <div *ngIf="userData">
+            <form [formGroup]="form" (ngSubmit)="subscriptionPayment(form)">
+                <div class="col-md-11 mx-3  justify-content-between">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2 class=""><b>Payment Details</b></h2>
+                        </div>
+                        <div class='col-md-4' *ngIf="!showHideStripeForm" (click)="showHideStripe()">
+                            <button class='form-control btn btn-new-blue submit-button' type='submit'>Add Card</button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2" *ngIf="payment_methods && payment_methods.length > 0">
+                        <label for="yourName" class="form-label">Saved cards : </label>
+                        <div class="paymentCard">
+                            <ng-container *ngFor="let item of payment_methods">
+                                <div class="cardPayment row">
+                                    <div class="col-md-1 mt-1">
+                                        <input id="CC-0" [formControl]="form.controls['data']" type="radio" name="id"
+                                            value="{{item |json}}">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="visa_logo pb-1">
+                                        </div>
+                                        <div class="visa_info">
+                                            {{item.card.brand | titlecase}}
+                                            <p style="color: #fff;">**** {{item.card.last4}}</p>
+                                        </div>
+                                        <div class="visa_crinfo">
+                                            <p>{{item.card.exp_month}}/{{item.card.exp_year}}</p>
+                                            <p>{{item.card.country}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <span class="danger" *ngIf="isSubmmitedForm && form.controls['data'].errors">
+                            <div *ngIf="isSubmmitedForm && form.controls.data.errors.required">
+                                Please select any card or add a card by click the "Add Card" botton.
+                            </div>
+                        </span>
+                    </div>
+                    <div class='stripSection mt-3' *ngIf="showHideStripeForm">
+                        <label for="customerID" class="form-label">Card Information</label>
+                        <div class="row">
+                            <div class="col-md-11">
+                                <div class="center form-control ">
+                                    <ngx-stripe-card class="stripe" [options]="cardOptions"
+                                        [elementsOptions]="elementsOptions"></ngx-stripe-card>
+                                </div>
+                            </div>
+                            <div class='col-md-1'
+                                *ngIf="showHideStripeForm && payment_methods && payment_methods.length > 0"
+                                (click)="showHideStripe()">
+                                <i class=" showStripw fa-regular fa-rectangle-xmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-12 form-group mt-3 btn-last-bottom-apply'>
+                    <button class='form-control btn  mt-3 p-2 submit-button' type='submit'
+                        *ngIf="hideSpinner" (click)="showHidePromocode()">Apply Promocode</button>
+                </div>
+                <div class='col-md-12 form-group mt-3 btn-last-bottom'>
+                    <button class='form-control btn btn-new-blue mt-3 p-2 submit-button' type='submit'
+                        *ngIf="hideSpinner">Pay</button>
+                    <mat-progress-spinner [mode]="'indeterminate'" [diameter]="30" color="#1f1f1f"
+                        class="stripe-spinner" *ngIf="!hideSpinner">
+                    </mat-progress-spinner>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="stripe-form" *ngIf="showPromocode">
+    <div class="p-3 top-bar stripe-start">
+        <i class="fa fa-close cursor-pointer" style="font-size: 19px; float: right;" (click)="onClose(false)"></i>
+    </div>
+    <div class="pop-up-new">
+        <div *ngIf="userData">
+            <form [formGroup]="form" (ngSubmit)="promocodeSubmit(form)">
+                <div class="col-md-11 mx-3  justify-content-between">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class=""><b><i (click)="showHidePromocode()"
+                                        class="closeStripe fa-solid fa-arrow-left"></i> Apply Promocode</b></h2>
+                        </div>
+                    </div>
+                    <div class='stripSection mt-3'>
+                        <label for="customerID" class="form-label">Promocode</label>
+                        <input class="form-control" type="text" placeholder="Enter code" name="code"
+                            [formControl]="form.controls['code']"
+                            [ngClass]="{ 'is-invalid': isSubmmited && form.controls['code'].errors }">
+                        <span class="danger" *ngIf="isSubmmited && form.controls['code'].errors">
+                            <div *ngIf="isSubmmited && form.controls.code.errors.required">
+                                Promocode is required.
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div class='col-md-12 form-group mt-3 btn-last-bottom'>
+                    <button class='form-control btn btn-new-blue mt-3 p-2 submit-button' type='submit'
+                        *ngIf="hideSpinnerApply">Apply</button>
+                    <mat-progress-spinner [mode]="'indeterminate'" [diameter]="30" color="#1f1f1f"
+                        class="stripe-spinner" *ngIf="!hideSpinnerApply">
+                    </mat-progress-spinner>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

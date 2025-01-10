@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand navbar-light navbar-bg">
+    <a id="sidebar-toggle" class="sidebar-toggle js-sidebar-toggle">
+        <i class="hamburger align-self-center"></i>
+    </a>
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav navbar-align">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-gear contact-us"></i>
+                    <span>Settings</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" [routerLink]="['/user/profile']">
+                        <i class="align-middle me-1 fa-solid fa-user" data-feather="user"></i>Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <!-- <div *ngIf="subscriptionDetails">
+                        <a class="dropdown-item" [routerLink]="['/user/subscription']">
+                            <i class="align-middle me-1 fa-solid fa-circle-info"
+                                data-feather="subscription"></i>Subscription Details</a>
+                        <div class="dropdown-divider"></div>
+                    </div> -->
+                    <a class="dropdown-item" (click)="_authService.logout()">
+                        <i class="align-middle me-1 fa fa-sign-out"></i> Log out</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

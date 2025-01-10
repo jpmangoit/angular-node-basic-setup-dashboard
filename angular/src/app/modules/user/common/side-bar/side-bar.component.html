@@ -1,0 +1,62 @@
+<nav id="sidebar" class="sidebar js-sidebar">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" [routerLink]="['/user/dashboard']">
+            <img [src]="'../../../../../assets/img/KnightNetwork.png'" width="160px">
+        </a>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-header">
+                Pages
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" [routerLink]="['/user/dashboard']" routerLinkActive="router-link-active">
+                    <i class="fa fa-bars align-middle"></i> <span class="align-middle">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/user/order-list']">
+                    <i class=" align-middle fa fa-box"></i> <span class="align-middle">Prep & Pack</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/user/product-inventory']">
+                    <i class=" align-middle fa fa-boxes-stacked"></i> <span class="align-middle">LIVE Inventory</span>
+                </a>
+            </li>
+            
+            <!-- <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/user/tracking']">
+                    <i class=" align-middle fa fa-truck-fast"></i> <span class="align-middle">Tracking</span>
+                </a>
+            </li> -->
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/user/analytics']">
+                    <i class=" align-middle fa fa-chart-simple"></i> <span class="align-middle">Analytics</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/user/products']">
+                    <i class=" align-middle fa fa-box-open"></i> <span class="align-middle">Products</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/user/contact-us']">
+                    <i class=" align-middle fa fa-headphones"></i> <span class="align-middle">Support</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/user/configure-platform']">
+                    <i class=" align-middle fa fa-cog"></i> <span class="align-middle">Configure Platform</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>

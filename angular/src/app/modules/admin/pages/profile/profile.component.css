@@ -1,0 +1,29 @@
+.font-weight-bold {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.avatar-edit {
+    position: relative;
+    left: 122px;
+    top: 39px;
+}
+
+.avatar-edit input.Def.upl.cursor-pointer {
+    position: absolute;
+    top: -10px;
+    width: 156px;
+    opacity: 0;
+    height: 172px;
+    left: -120px;
+    z-index: 2;
+}
+
+.avatarLabel {
+    display: flex;
+}
+
+.labelProfile {
+    margin-left: 20px;
+}
+.card-body{padding: 0;}

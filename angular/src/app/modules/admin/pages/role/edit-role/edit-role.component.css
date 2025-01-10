@@ -1,0 +1,142 @@
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+.h3 i.ri-arrow-left-fill {
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-right: 15px;
+    box-shadow: 0px 3px 10px 2px #bfbfbf9c;
+}
+.h3 i.ri-arrow-left-fill:hover {
+    background-color: #ffba5a;
+    cursor: pointer;
+    color: #ffffff;
+}
+.Advanced-Attribute .card .card-header button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    align-items: center;
+}
+.card-header button.btn.btn-link {
+    color: #5a5c69;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+}
+.collapsed svg {
+    transform: rotate(180deg);
+}
+.card-body .sku input.in-put {
+    background: transparent;
+    box-shadow: 0px 3px 10px 2px #bfbfbf9c;
+    color: #000;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    outline: none;
+    border-radius: 2px;
+    margin-top: 8px;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.selectbox11 {
+    background: transparent;
+    box-shadow: none;
+    color: #000;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    outline: none;
+    border-radius: 2px;
+    margin-top: 8px;
+    border: 1px solid #b4b4b4;
+    height: 35px;
+    border-radius: 4px;
+}
+.sku {
+    flex: 1 1 49%;
+}
+.stock {
+    flex: 1 1 49%;
+}
+/* .sku.upl-im {
+  border: 1px solid #c1c1c1;
+  border-radius: 5px;
+  padding: 30px;
+  position: relative;
+} */
+.avatar-preview {
+    margin: 0 auto;
+    display: block;
+}
+.upload-opt input.in-put.Def.\.up-img {
+    width: 56%;
+    position: absolute;
+    top: 0px;
+    transform: translate(40%, 15%);
+    left: 0%;
+    opacity: 0;
+    height: 151px;
+}
+.upload-opt {
+    border: 1px solid #c1c1c1;
+    width: 72%;
+    padding: 10px 30px;
+    margin-top: 15px;
+    position: relative;
+    border-radius: 5px;
+    height: 230px;
+    overflow: hidden;
+}
+.avatar-preview {
+    text-align: center;
+    margin-top: 15px;
+}
+.upload-opt .avatar-preview img {
+    height: 180px;
+}
+input.Def.upl {
+    position: absolute;
+    top: 18px;
+    width: 156px;
+    opacity: 0;
+    left: 24%;
+    height: 172px;
+}
+.card-header {
+    border-bottom: none;
+}
+.Advanced-Attribute .card {
+    margin-bottom: 15px;
+}
+.card {
+    border-radius: 0;
+    box-shadow: 0px 5px 10px 2px rgb(204 204 204 / 57%) !important;
+}
+.card-header {
+    box-shadow: 0px;
+    box-shadow: none;
+}
+.stock{
+    width: 158%;
+}
+.card-body.General-item {
+  width: 42%;
+}

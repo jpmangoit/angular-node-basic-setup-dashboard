@@ -1,0 +1,80 @@
+<nav id="sidebar" class="sidebar js-sidebar">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" [routerLink]="['/admin/dashboard']">
+            <img [src]="'../../../../../assets/img/KnightNetwork.png'" width="160px">
+        </a>
+
+        <ul class="sidebar-nav" >
+            <li class="sidebar-header">
+                Pages
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active">
+                    <i class="fa fa-bars align-middle"></i> <span class="align-middle">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a id="sidebar-link" class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/user-list']">
+                    <i class=" align-middle fa fa-user"></i> <span class="align-middle">Users</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a id="sidebar-link" class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/package-list']">
+                    <i class=" align-middle fa fa-archive"></i> <span class="align-middle">Packages</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a id="sidebar-link" class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/promocode-list']">
+                    <i class=" align-middle fa-solid fa-receipt"></i> <span class="align-middle">Promocodes</span>
+                </a>
+            </li>
+
+            <!-- <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/order-list']">
+                    <i class=" align-middle fa fa-box"></i> <span class="align-middle">Orders</span>
+                </a>
+            </li> -->
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/order-creation']">
+                    <i class=" align-middle fa fa-book"></i> <span class="align-middle">Order Creation</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/analytics']">
+                    <i class=" align-middle fa fa-chart-simple"></i> <span class="align-middle">Analytics</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/google-sheet-list']">
+                    <i class="align-middle fa fa-cog"></i> <span class="align-middle">Sheet Configuration</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/suscription-transactions']">
+                    <i class="fa-regular fa-credit-card align-middle "></i> <span class="align-middle">Transactions</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/plans']">
+                    <i class="fa-solid fa-hand-holding-dollar align-middle "></i> <span class="align-middle">Subscription Plans</span>
+                </a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a class="sidebar-link" routerLinkActive="router-link-active" [routerLink]="['/admin/subscriptions']">
+                    <i class="fa-solid fa-users align-middle "></i> <span class="align-middle">Subscriptions</span>
+                </a>
+            </li>
+              
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,75 @@
+<main class="d-flex main-plat">
+    <div class="container d-flex flex-column">
+                <div class="plateform-main" *ngIf="!showForm">
+                            <div class="m-sm-4 heading-auth">
+                                <div class="card-header">
+                                    <h2 class="card-title">Select Platform</h2>
+                                </div>
+                            </div>
+                            <div class="auth-plateform">
+                                <div class="auth-division">
+                                    <div *ngIf="amazonAuthorize == 1" class="amazon-badge">Active</div>
+                                    <div class="plateform-inner">
+                                    <a href="javascript:void(0)" (click)="selectedPlateform('amazon')"
+                                        class="platform-block">
+                                        <img src="../../../../../assets/img/amazon.png">
+                                    </a>
+                                    <div class="text-center unauth-btn" *ngIf="amazonAuthorize == 1"
+                                        (click)="removeAuth('amazon')">
+                                        <i class="fa fa-trash"></i>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="auth-division">
+                                    <div *ngIf="walmartAuthorize == 1" class="walmart-badge">Active</div>
+                                    <div class="plateform-inner">
+                                    <a href="javascript:void(0)" (click)="selectedPlateform('walmart')"
+                                        class="platform-block">
+                                        <img class="img-walmart" src="../../../../../assets/img/walmart.png">
+                                    </a>
+                                    <div class="text-center unauth-btn" *ngIf="walmartAuthorize == 1"
+                                        (click)="removeAuth('walmart')"> <i class="fa fa-trash"></i>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                </div>
+                <div class="align-middle" *ngIf="showForm">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-right">
+                                <i class="fa fa-close cursor-pointer" style="font-size: 19px; float: right;"
+                                    (click)="showForm = false"></i>
+                            </div>
+                            <div class="text-center">
+                                <img src="../../../../../assets/img/KnightNetwork.png" alt="Charles Hall"
+                                    class="img-fluid" width="140" height="140" />
+                            </div>
+                            <form class="user" [formGroup]="walmartForm" (ngSubmit)="onsubmit()">
+                                <div class="card-body">
+                                    <label>ClientId</label>
+                                    <div class="mb-3">
+                                        <input type="clientId" class="form-control" placeholder="Enter clientId"
+                                            name="clientId" formControlName="clientId" />
+                                        <span class="danger"
+                                            *ngIf="isSubmitted && formControls['clientId'].errors">ClientId is
+                                            required</span>
+                                    </div>
+                                    <label>Client Secret</label>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="clientSecret"
+                                            name="clientSecret" formControlName="clientSecret" />
+                                        <span class="danger"
+                                            *ngIf="isSubmitted && formControls['clientSecret'].errors">ClientSecret is
+                                            required</span>
+                                    </div>
+                                    <div class="text-center btn-main">
+                                        <button type="submit" class="btn btn-info w-50 mt-4 mb-0">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</main>

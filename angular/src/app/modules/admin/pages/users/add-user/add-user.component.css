@@ -1,0 +1,320 @@
+.avatar-preview {
+  text-align: center;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.Advanced-Attribute .card .card-header button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  align-items: center;
+}
+
+.card-header button.btn.btn-link {
+  color: #fff;
+  font-weight: 600;
+  font-size: 23px;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.sku input.in-put {
+  background: transparent;
+  box-shadow: 0px 3px 10px 2px #bfbfbf9c;
+  color: #000;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  outline: none;
+  border-radius: 2px;
+  margin-top: 3px;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+}
+
+select.selectbox11 {
+  background: transparent;
+  box-shadow: 0px 3px 10px 2px #bfbfbf9c;
+  color: #000;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  outline: none;
+  border-radius: 2px;
+  margin-top: 8px;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+  background-color: #fb9400;
+  border: #fb9400;
+}
+
+.btn-primary:focus {
+  background-color: #fb9400;
+  border-color: #fb9400;
+  box-shadow: none;
+}
+
+.cd-title {
+  padding: 0 20px;
+}
+
+/* .upload-opt {
+  width: 100%;
+  padding: 10px 30px;
+  margin-top: 15px;
+  position: relative;
+  border-radius: 5px;
+  height: 150px;
+  overflow: hidden;
+  border: 1px solid #b4b4b4a6;
+} */
+.upload-opt {
+  background: transparent;
+  box-shadow: 0px 3px 10px 2px #bfbfbf9c;
+  color: #000;
+  padding: 0 20px;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  outline: none;
+  margin-top: 8px;
+  border: none;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.collapsed svg {
+  transform: rotate(180deg);
+}
+
+.btn-primary[_ngcontent-ibd-c174]:not(:disabled):not(.disabled):active {
+  background-color: #ffba5a;
+  border-color: #ffba5a;
+}
+
+input.Def.upl {
+  position: absolute;
+  top: 18px;
+  width: 156px;
+  opacity: 0;
+  left: 24%;
+  height: 172px;
+}
+
+.h3 i.ri-arrow-left-fill {
+  background-color: rgba(0, 0, 0, .03);
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 25px;
+  margin-right: 15px;
+  box-shadow: 0px 3px 10px 2px #bfbfbf9c;
+}
+
+span.def {
+  font-weight: 500;
+  font-size: 16px;
+  color: #595c68;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.h3 i.ri-arrow-left-fill:hover {
+  background-color: #ffba5a;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.card-body.d-flex div {
+  flex: 1 1 49%;
+}
+
+.stock.d-flex.flex-column {
+  flex: 1 1 49%;
+}
+
+.sku {
+  flex: 1 1 49%;
+}
+
+.upload-opt .avatar-preview img {
+  height: 137px;
+  width: 70%;
+  margin-top: 49px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.angular-editor .angular-editor-wrapper .angular-editor-textarea {
+  height: 15.9rem !important;
+}
+
+.card-header {
+  border-bottom: none;
+}
+
+.Advanced-Attribute .card {
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.card {
+  border-radius: 0;
+}
+
+.card-header {
+  box-shadow: 0px;
+  box-shadow: none;
+}
+
+.card-body.General-item {
+  width: 50%;
+}
+
+.stock {
+  width: 158%;
+}
+
+.danger {
+  color: red;
+}
+
+input.in-put.Def::placeholder {
+  color: #99999982;
+}
+
+::ng-deep .mat-form-field-infix {
+  border-top: none;
+}
+
+::ng-deep .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+::ng-deep .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+  cursor: pointer;
+  height: 35px;
+  border-bottom: 1px solid #b4b4b4a6;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+::ng-deep .mat-label.ng-tns-c91-0.ng-star-inserted::placeholder {
+  color: #99999982;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  /* padding: 0px 30px 0px 30px; */
+}
+
+.upload-opt {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.uplod-item {
+  margin-top: 16px;
+  width: 98%;
+}
+
+
+
+.card-header {
+  /* background-color: rgb(89 92 104); */
+  border-radius: 8px 8px 0 0;
+}
+
+.user-info {
+  width: 50%;
+}
+
+.main-card {
+  margin-top: 30px;
+}
+
+h1.h3 i.fa.fa-arrow-left {
+  font-size: 22px;
+  margin-right: 15px;
+  background-color: #595c68;
+  color: #fff;
+  padding: 9px 10px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+button.btn.btn-link i.fa.fa-arrow-left {
+  transform: rotate(90deg);
+  font-size: 18px;
+  margin-right: 0px;
+  background-color: #ffffff;
+  color: #595c68;
+  padding: 7px 7px;
+  border-radius: 25px;
+}
+
+::ng-deep .mat-form-field-underline {
+  width: auto;
+}
+
+::ng-deep .mat-form-field-appearance-legacy.mat-form-field-invalid:not(.mat-focused) .mat-form-field-ripple {
+  height: 0px;
+}
+
+.form {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  min-width: 500px;
+}
+
+.form-inline-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.vox-fild select.form-select {
+  background: transparent;
+  box-shadow: 0px 3px 10px 2px #bfbfbf9c;
+  color: #000;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  outline: none;
+  margin-top: 8px;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+}
+.save button.btn.btn-sm.btn-primary.btn-pri {
+  background-color: #595c68;
+}
+.card-header {
+    padding: 0.35rem 1.25rem;
+}
+.main-card{
+  padding: 30px;
+}

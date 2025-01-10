@@ -1,0 +1,34 @@
+{
+    "development": {
+        "username": "root",
+        "password": "",
+        "database": "nodeBasic",
+        "host": "localhost",
+        "dialect": "mysql",
+        "frontendUrl": "http://localhost:4200",
+        "emailSenderOptions": {
+            "secure": false,
+            "service": "gmail",
+            "auth": {
+                "user": "rohit111.mangoit@gmail.com",
+                "pass": "ppjo cisr ithv qdmv"
+            }
+        }
+    },
+    "production": {
+        "username": "root",
+        "password": "",
+        "database": "nodeBasic",
+        "host": "localhost",
+        "dialect": "mysql",
+        "frontendUrl": "http://localhost:4200",
+        "emailSenderOptions": {
+            "secure": false,
+            "service": "gmail",
+            "auth": {
+                "user": "rohit111.mangoit@gmail.com",
+                "pass": "ppjo cisr ithv qdmv"
+            }
+        }
+    }
+}

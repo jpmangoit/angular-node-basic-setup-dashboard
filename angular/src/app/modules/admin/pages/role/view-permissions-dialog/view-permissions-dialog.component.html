@@ -1,0 +1,36 @@
+<div class="mainPermisssion">
+    <div mat-dialog-actions class="close">
+        <i class="fa fa-window-close" (click)="onClose(true)"></i>
+    </div>
+    <table class="table table-hover my-0">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Permission</th>
+                <th>Create</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>Get</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data;let i = index">
+                <td> {{i+1}}</td>
+                <td>{{item[0]| titlecase}} </td>
+                <td *ngFor="let permission of item[1]">
+                    <a *ngIf="permission.permissionName != 'showClose'">
+                        <div class="position-relative">
+                            <i class="fa fa-check align-middle success"></i>
+                        </div>
+                    </a>
+                    <a *ngIf="permission.permissionName == 'showClose'">
+                        <div class="position-relative">
+                            <i class="fa fa-close align-middle fail"></i>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
